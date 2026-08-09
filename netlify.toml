@@ -1,4 +1,5 @@
 [build]
+  # Keep all paths relative to the repository root so the img folder is deployed.
+  base = "."
   publish = "light-kld"
   functions = "netlify/functions"
-
