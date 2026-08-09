@@ -472,7 +472,7 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
         <label class="field">Комментарий<textarea id="f-comment" rows="3" placeholder="Например: фестиваль 14 июня, арка + 10 шаров"></textarea></label>
         <label class="form-honeypot" aria-hidden="true">Не заполняйте это поле<input type="text" id="f-website" tabindex="-1" autocomplete="off"></label>
         <button type="submit" class="btn btn-primary" id="form-submit">Отправить заявку</button>
-        <p class="form-note">После нажатия откроется WhatsApp с готовым текстом заявки. Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+        <p class="form-note">Заявка будет отправлена в Telegram. Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
         <p class="form-ok" id="form-ok" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
@@ -582,28 +582,35 @@ $('#lb-close').addEventListener('click',lbClose);
 lb.addEventListener('click',e=>{if(e.target===lb)lbClose();});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))lbClose();});
 
-/* форма: GitHub Pages — статический хостинг, поэтому заявка открывается в WhatsApp без серверной функции */
-$('#form').addEventListener('submit',e=>{
+/* форма: токен Telegram хранится только в переменных окружения Netlify */
+$('#form').addEventListener('submit',async e=>{
   e.preventDefault();
-  const form=e.target,name=$('#f-name'),phone=$('#f-phone'),status=$('#form-ok');let ok=true;
+  const form=e.target,name=$('#f-name'),phone=$('#f-phone'),submit=$('#form-submit'),status=$('#form-ok');let ok=true;
   [name,phone].forEach(f=>{const bad=!f.value.trim();f.style.borderColor=bad?'#ff6b6b':'';if(bad)ok=false;});
   if(!ok)return;
-  status.hidden=true;status.classList.remove('is-error');
-  if($('#f-website').value.trim()){
+  const submitLabel=submit.textContent;
+  submit.disabled=true;submit.textContent='Отправляем...';status.hidden=true;status.classList.remove('is-error');
+  try{
+    const response=await fetch('/.netlify/functions/submit-lead',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:name.value,
+        phone:phone.value,
+        topic:$('#f-topic').value,
+        comment:$('#f-comment').value,
+        website:$('#f-website').value
+      })
+    });
+    if(!response.ok)throw new Error('Request failed');
     status.textContent='Заявка успешно отправлена';
     status.hidden=false;
     form.reset();
-    return;
+  }catch(error){
+    status.textContent='Не удалось отправить заявку. Попробуйте ещё раз.';
+    status.classList.add('is-error');status.hidden=false;
+  }finally{
+    submit.disabled=false;submit.textContent=submitLabel;
   }
-  const message=[
-    'Новая заявка с сайта LIGHT KLD',
-    '',
-    `Имя: ${name.value.trim()}`,
-    `Телефон: ${phone.value.trim()}`,
-    `Тема: ${$('#f-topic').value}`,
-    `Комментарий: ${$('#f-comment').value.trim()||'Нет'}`,
-  ].join('\n');
-  location.href=`https://wa.me/79114552508?text=${encodeURIComponent(message)}`;
 });
 </script>
 </body>
