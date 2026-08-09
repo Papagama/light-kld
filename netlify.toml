@@ -1,0 +1,4 @@
+[build]
+  publish = "light-kld"
+  functions = "netlify/functions"
+

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIGHT KLD — световые шары, арки и инсталляции в Калининграде | Аренда и производство</title>
+<meta name="description" content="Светящиеся шары с логотипом, надувные арки, звёзды и конусы для событий, выставок, набережных и сцен. Аренда и продажа со склада в Калининграде.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><radialGradient id='g' cx='35%25' cy='30%25'><stop offset='0%25' stop-color='%23ffffff'/><stop offset='60%25' stop-color='%23ffd9a0'/><stop offset='100%25' stop-color='%23ff8a3d'/></radialGradient></defs><circle cx='32' cy='32' r='26' fill='url(%23g)'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========== ТОКЕНЫ ========== */
+:root{
+  --bg:#070a0f;--bg-2:#0b1017;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+  --text:#f2f6fa;--muted:#9aa8b8;--amber:#ffb454;--amber-2:#ff8a3d;--cyan:#67e2ff;--violet:#a78bfa;--pink:#ff7ac3;
+  --grad:linear-gradient(120deg,var(--amber),var(--amber-2) 55%,var(--pink));
+  --r:22px;--fd:'Unbounded',system-ui,sans-serif;--fb:'Manrope',system-ui,sans-serif;
+  --glow:0 12px 40px -8px rgba(255,150,70,.45);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--bg);color:var(--text);font:500 16px/1.65 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--amber);color:#1a1206}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#233041;border-radius:8px}
+.container{width:min(1200px,92%);margin-inline:auto}
+.narrow{width:min(820px,92%);margin-inline:auto}
+.section{padding:110px 0}
+.alt{background:var(--bg-2);border-block:1px solid var(--line)}
+h1,h2,h3{font-family:var(--fd);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3{font-size:1.05rem;font-weight:500}
+.overline{font:700 .78rem/1 var(--fb);letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+.lead{color:var(--muted);max-width:62ch;margin-top:14px}
+.sec-head{margin-bottom:56px}
+
+/* ========== ЦВЕТОКОРРЕКЦИЯ ФОТО ========== */
+.grade{position:relative;overflow:hidden}
+.grade img{width:100%;height:100%;object-fit:cover;filter:saturate(1.28) contrast(1.12) brightness(1.07);transition:transform .8s ease}
+.grade::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:overlay;opacity:.55;
+  background:linear-gradient(165deg,rgba(255,166,88,.18),rgba(255,255,255,0) 45%,rgba(24,60,120,.22))}
+.gd-warm::after{background:linear-gradient(165deg,rgba(255,150,60,.26),rgba(255,90,40,.06) 50%,rgba(20,40,90,.2))}
+.gd-cool::after{background:linear-gradient(165deg,rgba(120,200,255,.18),rgba(255,255,255,0) 40%,rgba(10,40,110,.26))}
+.gd-night::after{background:linear-gradient(170deg,rgba(90,140,255,.15),rgba(0,0,0,0) 35%,rgba(255,140,60,.13));opacity:.65}
+#lb-img{filter:saturate(1.22) contrast(1.1) brightness(1.05)}
+
+/* ========== КНОПКИ ========== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 30px;border-radius:999px;font:700 .95rem var(--fb);transition:transform .25s,box-shadow .25s,border-color .25s;border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--grad);color:#221204;box-shadow:var(--glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 48px -8px rgba(255,150,70,.6)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+.btn-sm{padding:10px 20px;font-size:.85rem}
+
+/* ========== ШАПКА ========== */
+#header{position:fixed;inset:0 0 auto;z-index:50;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+#header.scrolled{background:rgba(7,10,15,.85);backdrop-filter:blur(14px);border-color:var(--line)}
+.header-in{display:flex;align-items:center;gap:32px;height:80px}
+.logo{display:flex;align-items:center;gap:10px;font:600 1.05rem var(--fd);letter-spacing:.06em}
+.logo-accent{color:var(--amber)}
+.logo-orb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#ffd9a0 55%,var(--amber-2));box-shadow:0 0 18px 4px rgba(255,170,90,.55)}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font:600 .9rem var(--fb);color:var(--muted);transition:color .25s;position:relative}
+.nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);border-radius:2px;transition:width .3s}
+.nav a:hover{color:var(--text)}.nav a:hover::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:20px}
+.header-tel{font:700 .9rem var(--fb);color:var(--muted)}.header-tel:hover{color:var(--amber)}
+.burger{display:none;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+
+/* ========== HERO ========== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg,.hero-bg img{position:absolute;inset:0;width:100%;height:100%}
+.hero-bg::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,10,15,.3),rgba(7,10,15,.55) 45%,var(--bg) 96%),linear-gradient(90deg,rgba(7,10,15,.7),transparent 60%)}
+.hero-glow{position:absolute;width:520px;height:520px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,180,84,.16),transparent 65%);left:var(--gx,70%);top:var(--gy,30%);transform:translate(-50%,-50%);transition:left .6s,top .6s;filter:blur(10px)}
+.hero-in{position:relative;z-index:2;padding:160px 0 72px}
+.hero-sub{color:#cfd9e4;max-width:56ch;margin:22px 0 34px;font-size:1.06rem}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;padding:26px 30px;border:1px solid var(--line);border-radius:var(--r);background:rgba(7,10,15,.55);backdrop-filter:blur(12px)}
+.stat strong{display:block;font:600 1.7rem var(--fd);color:var(--amber)}
+.stat span{color:var(--muted);font-size:.85rem}
+
+/* ========== БЕГУЩАЯ СТРОКА ========== */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--bg-2);padding:16px 0}
+.marquee-track{display:flex;gap:34px;width:max-content;animation:marquee 26s linear infinite}
+.marquee span{font:500 .82rem var(--fd);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.marquee i{color:var(--amber);font-style:normal}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ========== СЦЕНАРИИ ========== */
+.scenes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.scene-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s;display:flex;flex-direction:column}
+.scene-card:hover{transform:translateY(-6px);border-color:rgba(255,180,84,.4);box-shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+.scene-img{aspect-ratio:4/2.9}
+.scene-card:hover .scene-img img{transform:scale(1.06)}
+.scene-body{padding:26px 26px 28px}
+.scene-body h3{font-size:1.1rem;margin-bottom:10px}
+.scene-body p{color:var(--muted);font-size:.93rem}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tags span{font:700 .7rem var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(255,180,84,.35);border-radius:999px;padding:5px 12px}
+
+/* ========== ПРОДУКТЫ (CSS-формы) ========== */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.chip{padding:10px 22px;border-radius:999px;border:1px solid var(--line);font:700 .85rem var(--fb);color:var(--muted);transition:.25s}
+.chip:hover{color:var(--text)}
+.chip.is-active{background:var(--grad);border-color:transparent;color:#221204}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+.p-card:hover{transform:translateY(-6px);border-color:rgba(255,180,84,.4)}
+.p-card.is-hidden{display:none}
+.p-card.pop{animation:cardIn .45s both}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.p-stage{height:200px;display:grid;place-items:center;background:radial-gradient(circle at 50% 80%,rgba(255,180,84,.12),transparent 60%),var(--bg-2);border-bottom:1px solid var(--line)}
+.product-photo{padding:0;overflow:hidden}
+.product-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(1.08) contrast(1.04) brightness(.98)}
+.p-card:hover .product-photo img{transform:scale(1.045)}
+
+.orb{width:var(--d,110px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#ffeccd 48%,rgba(255,190,110,.9) 75%,rgba(255,150,80,.55));box-shadow:0 0 55px 16px rgba(255,190,120,.35),0 0 120px 40px rgba(255,150,80,.12);animation:float 6s ease-in-out infinite;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.orb b{position:absolute;inset:0;display:grid;place-items:center;font:700 .72rem var(--fd);color:#7a4a1f;letter-spacing:.1em}
+.shape-arch{width:150px;height:84px;border-radius:150px 150px 0 0;border:20px solid rgba(255,240,210,.92);border-bottom:none;box-shadow:0 0 40px 8px rgba(255,190,120,.35);animation:float 6s ease-in-out infinite}
+.shape-star{width:130px;height:130px;clip-path:polygon(50% 0%,63% 33%,98% 36%,71% 59%,80% 95%,50% 75%,20% 95%,29% 59%,2% 36%,37% 33%);background:radial-gradient(circle at 50% 45%,#fff,#ffe9c4 55%,rgba(255,180,90,.85));filter:drop-shadow(0 0 22px rgba(255,200,120,.65));animation:float 6s ease-in-out infinite}
+.shape-cone{width:104px;height:136px;clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(180deg,#fff,#ffd9a0 55%,var(--amber-2));filter:drop-shadow(0 0 22px rgba(255,170,90,.55));animation:float 6s ease-in-out infinite}
+.p-body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.p-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.p-top h3{font-size:1rem}
+.p-size{font:700 .75rem var(--fb);color:var(--muted);letter-spacing:.06em}
+.p-body>p{color:var(--muted);font-size:.88rem}
+.p-specs{display:flex;gap:8px;flex-wrap:wrap}
+.p-specs li{font:700 .68rem var(--fb);letter-spacing:.06em;color:var(--cyan);background:rgba(103,226,255,.08);border:1px solid rgba(103,226,255,.25);border-radius:999px;padding:4px 10px}
+.p-price{display:flex;gap:22px;border-top:1px solid var(--line);padding-top:14px}
+.p-price span{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.p-price strong{font:600 .95rem var(--fd)}
+.p-actions{display:flex;gap:10px}
+.p-actions .btn{flex:1}
+
+/* ========== ПОРТФОЛИО ========== */
+.cases-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.c-item{position:relative;border-radius:var(--r);border:1px solid var(--line);cursor:zoom-in}
+.c-item img{aspect-ratio:4/3}
+.c-item.w2{grid-column:span 2}
+.c-item.w2 img{aspect-ratio:21/10}
+.c-item:hover img{transform:scale(1.05)}
+.c-item figcaption{position:absolute;inset:auto 0 0;z-index:2;padding:12px 16px;font-size:.8rem;color:#eaf1f8;background:linear-gradient(transparent,rgba(7,10,15,.9));opacity:0;transition:.35s}
+.c-item:hover figcaption{opacity:1}
+.c-item.is-hidden{display:none}
+.c-item.pop{animation:cardIn .45s both}
+
+/* ========== ЛАЙТБОКС ========== */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(4,6,10,.93);backdrop-filter:blur(8px);display:grid;place-items:center;padding:5vh 5vw;opacity:0;visibility:hidden;transition:.35s}
+.lb.open{opacity:1;visibility:visible}
+.lb figure{max-width:min(1100px,100%)}
+.lb img{max-height:80vh;max-width:100%;object-fit:contain;border-radius:14px}
+.lb figcaption{text-align:center;color:var(--muted);margin-top:14px;font-size:.9rem}
+.lb-close{position:absolute;top:22px;right:26px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);color:var(--text);transition:.25s}
+.lb-close:hover{border-color:var(--amber);color:var(--amber)}
+
+/* ========== АРЕНДА ========== */
+.rent-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.steps{display:flex;flex-direction:column;gap:8px}
+.steps li{display:flex;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.step-n{font:600 1.5rem var(--fd);color:var(--amber);min-width:64px}
+.steps h3{margin-bottom:6px}
+.steps p{color:var(--muted);font-size:.93rem}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px;position:sticky;top:110px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.calc h3{font:600 1.2rem var(--fd);margin-bottom:22px}
+.field{display:block;font:700 .8rem var(--fb);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.field output{color:var(--amber)}
+.field select,.field input,.field textarea{display:block;width:100%;margin-top:8px;padding:13px 16px;border-radius:14px;background:var(--bg-2);border:1px solid var(--line);color:var(--text);font:500 .95rem var(--fb);outline:none;transition:border-color .25s}
+.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--amber)}
+.field input[type=range]{padding:0;height:32px;accent-color:var(--amber);background:transparent;border:0}
+.field textarea{resize:vertical}
+.calc-note{font-size:.8rem;color:var(--muted);margin-bottom:16px}
+.calc-total{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:18px 0;margin-bottom:20px}
+.calc-total span{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
+.calc-total strong{font:600 1.45rem var(--fd);color:var(--amber)}
+.calc .btn{width:100%}
+
+/* ========== ПАРТНЁРЫ / FAQ / КОНТАКТЫ ========== */
+.b2b-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.b2b-left{position:sticky;top:120px}
+.b2b-left .btn{margin-top:28px}
+.b2b-right{display:flex;flex-direction:column;gap:20px}
+.b2b-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:transform .35s,border-color .35s}
+.b2b-card:hover{transform:translateX(8px);border-color:rgba(255,180,84,.4)}
+.b2b-card h3{color:var(--amber);margin-bottom:10px}
+.b2b-card p{color:var(--muted);font-size:.93rem}
+.acc{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 4px;text-align:left;font:600 1.02rem var(--fd);transition:color .25s}
+.acc-btn:hover{color:var(--amber)}
+.acc-ico{position:relative;width:16px;height:16px;flex:none}
+.acc-ico::before,.acc-ico::after{content:"";position:absolute;inset:0;margin:auto;background:var(--amber);border-radius:2px;transition:transform .35s}
+.acc-ico::before{width:16px;height:2px}.acc-ico::after{width:2px;height:16px}
+.acc-item.open .acc-ico::after{transform:rotate(90deg)}
+.acc-item.open .acc-ico::before{transform:rotate(180deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.acc-item.open .acc-panel{grid-template-rows:1fr}
+.acc-inner{overflow:hidden}
+.acc-inner p{color:var(--muted);padding:0 4px 24px;max-width:70ch}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contacts-list{margin:30px 0;display:flex;flex-direction:column;gap:16px}
+.contacts-list span{display:block;font:700 .72rem var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.contacts-list a:hover{color:var(--amber)}
+.messengers{display:flex;gap:12px;flex-wrap:wrap}
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:38px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.form h3{font:600 1.25rem var(--fd);margin-bottom:24px}
+.form .btn{width:100%;margin-top:6px}
+.form-note{font-size:.75rem;color:var(--muted);margin-top:14px;text-align:center}
+.form-ok{margin-top:16px;color:#7ee2a8;font-weight:600;text-align:center}
+.form-ok.is-error{color:#ff8a8a}
+.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.footer{border-top:1px solid var(--line);padding:44px 0}
+.footer-in{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.footer p{color:var(--muted);font-size:.9rem}
+.footer-copy{font-size:.8rem;opacity:.7}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+[data-reveal].revealed{opacity:1;transform:none}
+
+/* ========== АДАПТИВ ========== */
+@media (max-width:1080px){.prod-grid{grid-template-columns:repeat(2,1fr)}.scenes-grid{grid-template-columns:repeat(2,1fr)}.cases-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(360px,84vw);flex-direction:column;gap:26px;background:var(--bg-2);border-left:1px solid var(--line);padding:110px 40px;transform:translateX(100%);transition:transform .4s ease;margin:0;z-index:49}
+  body.menu-open .nav{transform:none}
+  body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.menu-open .burger span:nth-child(2){opacity:0}
+  body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .burger{display:flex;z-index:50}
+  .header-tel{display:none}
+  .rent-grid,.b2b-grid,.contacts-grid{grid-template-columns:1fr;gap:44px}
+  .calc,.b2b-left{position:static}
+  .cases-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .section{padding:80px 0}
+  .scenes-grid,.prod-grid,.cases-grid{grid-template-columns:1fr}
+  .c-item.w2{grid-column:auto}.c-item.w2 img{aspect-ratio:16/10}
+  .hero-in{padding-top:130px}.hero-stats{padding:22px}
+  .header-actions .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container header-in">
+    <a class="logo" href="#top"><span class="logo-orb"></span>LIGHT<span class="logo-accent">KLD</span></a>
+    <nav class="nav" id="nav">
+      <a href="#scenes">Сценарии</a><a href="#products">Продукты</a><a href="#cases">Портфолио</a><a href="#rent">Аренда</a><a href="#b2b">Партнёрам</a><a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-tel" href="tel:+79114552508">+7 (911) 455-25-08</a>
+      <a href="#contacts" class="btn btn-primary btn-sm">Забронировать</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg grade gd-night"><img src="img/02.jpg" alt="Освещенная фасадная инсталляция" fetchpriority="high"></div>
+    <div class="hero-glow" id="hero-glow"></div>
+    <div class="container hero-in">
+      <p class="overline" data-reveal>Калининград · Зеленоградск · Светлогорск · Куршская коса</p>
+      <h1 data-reveal>Шары, которые работают на&nbsp;вас</h1>
+      <p class="hero-sub" data-reveal>Светящиеся шары с вашим логотипом, надувные арки, звёзды и конусы — для событий, выставок, набережных и сцен. Аренда и производство со склада в Калининграде.</p>
+      <div class="hero-cta" data-reveal>
+        <a href="#cases" class="btn btn-primary">Смотреть портфолио</a>
+        <a href="#rent" class="btn btn-ghost">Как работает аренда</a>
+      </div>
+      <div class="hero-stats" data-reveal>
+        <div class="stat"><strong><span data-count="200">0</span>+</strong><span>проектов в регионе</span></div>
+        <div class="stat"><strong>1–6 м</strong><span>диаметры шаров</span></div>
+        <div class="stat"><strong><span data-count="12">0</span> ч</strong><span>свечения без розетки</span></div>
+        <div class="stat"><strong>24 ч</strong><span>срочный монтаж</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Шары с логотипом</span><i>•</i><span>Надувные арки</span><i>•</i><span>Светящиеся звёзды</span><i>•</i><span>Конусы и пирамиды</span><i>•</i><span>Аэростаты</span><i>•</i><span>Аренда от суток</span><i>•</i><span>Монтаж и демонтаж</span><i>•</i>
+      <span>Шары с логотипом</span><i>•</i><span>Надувные арки</span><i>•</i><span>Светящиеся звёзды</span><i>•</i><span>Конусы и пирамиды</span><i>•</i><span>Аэростаты</span><i>•</i><span>Аренда от суток</span><i>•</i><span>Монтаж и демонтаж</span><i>•</i>
+    </div>
+  </div>
+
+  <!-- СЦЕНАРИИ -->
+  <section class="section" id="scenes">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <p class="overline">01 · Сценарии</p>
+        <h2>Где работает наш свет</h2>
+        <p class="lead">От брендированной выставки до концерта на площади: одна команда привозит, монтирует и снимает инсталляцию.</p>
+      </div>
+      <div class="scenes-grid">
+        <article class="scene-card" data-reveal><div class="scene-img grade gd-warm"><img src="img/01.jpg" alt="Брендированные шары в экспо-холле" loading="lazy"></div><div class="scene-body"><h3>Бренды и выставки</h3><p>Шары с логотипом в экспо-холлах, шоурумах и на запусках продуктов. Видно из любого угла площадки.</p><div class="tags"><span>печать логотипа</span><span>экспо</span></div></div></article>
+        <article class="scene-card" data-reveal><div class="scene-img grade gd-night"><img src="img/06.jpg" alt="Надувная светящаяся арка" loading="lazy"></div><div class="scene-body"><h3>Городские фестивали</h3><p>Парки, площади и набережные: световые аллеи, арки и сферы, которые собирают очереди на фото.</p><div class="tags"><span>фестивали</span><span>фотозоны</span></div></div></article>
+        <article class="scene-card" data-reveal><div class="scene-img grade gd-warm"><img src="img/05.jpg" alt="Освещение водных объектов и барж" loading="lazy"></div><div class="scene-body"><h3>Побережье и пирсы</h3><p>Цветные шары на пирсах и променадах — визитная карточка закатных локаций Зеленоградска.</p><div class="tags"><span>набережные</span><span>пляжи</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОДУКТЫ -->
+  <section class="section alt" id="products">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <p class="overline">02 · Продукты</p>
+        <h2>Что берём в работу</h2>
+        <p class="lead">Четыре линейки — от компактного RGB-шара до шестиметровой сферы с вашим логотипом.</p>
+      </div>
+      <div class="chips" id="filters" data-reveal>
+        <button class="chip is-active" data-filter="all">Все</button>
+        <button class="chip" data-filter="brand">Бренд</button>
+        <button class="chip" data-filter="event">События</button>
+        <button class="chip" data-filter="city">Город</button>
+      </div>
+      <div class="prod-grid" id="prod-grid">
+        <article class="p-card" data-cat="brand event" data-reveal>
+          <div class="p-stage product-photo"><img src="img/neutral-sea.jpg" alt="Спокойное море в тумане" loading="lazy"></div>
+          <div class="p-body"><div class="p-top"><h3>LOGO ORB</h3><span class="p-size">1–6 м</span></div><p>Сфера с печатью вашего логотипа — наружная и интерьерная реклама.</p><ul class="p-specs"><li>печать</li><li>подвес/наземь</li><li>LED 220 В</li></ul><div class="p-price"><div><span>аренда</span><strong>от 3 500 ₽/сут</strong></div><div><span>производство</span><strong>от 28 000 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
+        </article>
+        <article class="p-card" data-cat="event" data-reveal>
+          <div class="p-stage product-photo"><img src="img/neutral-stones.jpg" alt="Гладкие камни в прозрачной воде" loading="lazy"></div>
+          <div class="p-body"><div class="p-top"><h3>RGBW ORB</h3><span class="p-size">20–100 см</span></div><p>Аккумуляторные шары с пультом: 16 цветов, до 12 часов свечения.</p><ul class="p-specs"><li>RGBW</li><li>12 ч</li><li>IP66</li></ul><div class="p-price"><div><span>аренда</span><strong>от 600 ₽/сут</strong></div><div><span>покупка</span><strong>от 5 500 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
+        </article>
+        <article class="p-card" data-cat="brand city" data-reveal>
+          <div class="p-stage product-photo"><img src="img/neutral-shadows.jpg" alt="Тени листвы на фактурной стене" loading="lazy"></div>
+          <div class="p-body"><div class="p-top"><h3>ARCH</h3><span class="p-size">пролёт 4–10 м</span></div><p>Надувная светящаяся арка — входные группы, пляжи, стартовые зоны.</p><ul class="p-specs"><li>печать логотипа</li><li>анкера</li><li>LED</li></ul><div class="p-price"><div><span>аренда</span><strong>от 4 500 ₽/сут</strong></div><div><span>производство</span><strong>от 45 000 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
+        </article>
+        <article class="p-card" data-cat="city event" data-reveal>
+          <div class="p-stage product-photo"><img src="img/neutral-sand.jpg" alt="Абстрактный рисунок тёмного песка" loading="lazy"></div>
+          <div class="p-body"><div class="p-top"><h3>STAR / CONE</h3><span class="p-size">0,6–2 м</span></div><p>Звёзды и конусы для парков, аллей и сцен — новогодние и фестивальные инсталляции.</p><ul class="p-specs"><li>подвес/наземь</li><li>RGB</li><li>IP65</li></ul><div class="p-price"><div><span>аренда</span><strong>от 900 ₽/сут</strong></div><div><span>покупка</span><strong>от 7 900 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОРТФОЛИО -->
+  <section class="section" id="cases">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <p class="overline">03 · Портфолио</p>
+        <h2>Галерея реализованных проектов</h2>
+        <p class="lead">Наши проекты: выставки, концерты, набережные и бренд-события. Нажмите на изображение для просмотра.</p>
+      </div>
+      <div class="chips" id="case-filters" data-reveal>
+        <button class="chip is-active" data-filter="all">Все</button>
+        <button class="chip" data-filter="event">События</button>
+        <button class="chip" data-filter="city">Город и парк</button>
+        <button class="chip" data-filter="stage">Сцена</button>
+        <button class="chip" data-filter="expo">Интерьер и экспо</button>
+        <button class="chip" data-filter="water">Побережье</button>
+      </div>
+      <div class="cases-grid" id="cases-grid">
+        <figure class="c-item w2 grade gd-warm" data-cat="expo" data-lb data-reveal><img src="img/01.jpg" alt="Брендированные шары в экспо-холле" loading="lazy"><figcaption>Экспо-холл: брендированные шары с логотипами</figcaption></figure>
+        <figure class="c-item grade gd-night" data-cat="city" data-lb data-reveal><img src="img/02.jpg" alt="Подсветка здания и территории" loading="lazy"><figcaption>Фасадная подсветка резиденции</figcaption></figure>
+        <figure class="c-item grade gd-cool" data-cat="expo" data-lb data-reveal><img src="img/03.jpg" alt="Световой портал" loading="lazy"><figcaption>Световой круглый портал с отражением</figcaption></figure>
+        <figure class="c-item grade gd-cool" data-cat="city event" data-lb data-reveal><img src="img/04.jpg" alt="Световой красный конус" loading="lazy"><figcaption>Световой конус — вечерняя арт-зона</figcaption></figure>
+        <figure class="c-item grade gd-warm" data-cat="water" data-lb data-reveal><img src="img/05.jpg" alt="Световые шары на пирсе" loading="lazy"><figcaption>Аэростаты и световые шары у воды</figcaption></figure>
+        <figure class="c-item w2 grade gd-night" data-cat="city" data-lb data-reveal><img src="img/06.jpg" alt="Светящаяся арка на набережной" loading="lazy"><figcaption>Надувная арка с логотипом на променаде</figcaption></figure>
+        <figure class="c-item w2 grade gd-warm" data-cat="expo" data-lb data-reveal><img src="img/07.jpg" alt="Подвесные сферы в стеклянном атриуме" loading="lazy"><figcaption>Подвесные световые модули в атриуме</figcaption></figure>
+        <figure class="c-item grade gd-warm" data-cat="event stage" data-lb data-reveal><img src="img/08.jpg" alt="Звёзды и конусы" loading="lazy"><figcaption>Композиция из звёзд и световых конусов</figcaption></figure>
+        <figure class="c-item grade gd-warm" data-cat="water city" data-lb data-reveal><img src="img/09.jpg" alt="Световая сфера на конструкции" loading="lazy"><figcaption>Сфера и пирамидальная арт-структура</figcaption></figure>
+        <figure class="c-item grade gd-night" data-cat="stage" data-lb data-reveal><img src="img/10.jpg" alt="Сцена со звёздами" loading="lazy"><figcaption>Концертная сцена со светящимися звёздами</figcaption></figure>
+        <figure class="c-item grade gd-cool" data-cat="water city" data-lb data-reveal><img src="img/11.jpg" alt="Инсталляция на морском берегу" loading="lazy"><figcaption>Инсталляция с конусами на променаде у моря</figcaption></figure>
+        <figure class="c-item w2 grade gd-night" data-cat="stage" data-lb data-reveal><img src="img/12.jpg" alt="Сцена со световыми шарами" loading="lazy"><figcaption>Сфера и софиты на сценической площадке</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- АРЕНДА -->
+  <section class="section alt" id="rent">
+    <div class="container rent-grid">
+      <div>
+        <div class="sec-head" data-reveal>
+          <p class="overline">04 · Аренда</p>
+          <h2>Аренда без головной боли</h2>
+          <p class="lead">Берём на себя всё: подбор, доставку, монтаж и демонтаж после события.</p>
+        </div>
+        <ol class="steps">
+          <li data-reveal><span class="step-n">01</span><div><h3>Заявка</h3><p>Выбираете продукты и даты по телефону или в чате — пять минут.</p></div></li>
+          <li data-reveal><span class="step-n">02</span><div><h3>Монтаж</h3><p>Привозим и устанавливаем в день обращения или строго к нужному часу.</p></div></li>
+          <li data-reveal><span class="step-n">03</span><div><h3>Событие</h3><p>Свет работает до 12 часов автономно, цвета и режимы — с пульта.</p></div></li>
+          <li data-reveal><span class="step-n">04</span><div><h3>Демонтаж</h3><p>После события сами забираем оборудование. Вам — только кадры.</p></div></li>
+        </ol>
+      </div>
+      <aside class="calc" data-reveal>
+        <h3>Посчитать аренду</h3>
+        <label class="field">Продукт
+          <select id="calc-model">
+            <option value="rgb">RGBW ORB — 600 ₽/сут</option>
+            <option value="star">STAR / CONE — 900 ₽/сут</option>
+            <option value="logo">LOGO ORB — 3 500 ₽/сут</option>
+            <option value="arch">ARCH — 4 500 ₽/сут</option>
+          </select>
+        </label>
+        <label class="field">Количество — <output id="qty-out">6</output> шт<input type="range" id="calc-qty" min="1" max="30" value="6"></label>
+        <label class="field">Срок — <output id="days-out">2</output> сут<input type="range" id="calc-days" min="1" max="14" value="2"></label>
+        <p class="calc-note">Скидки: от 3 суток — 10 %, от 7 суток — 20 %.</p>
+        <div class="calc-total"><span>Итого</span><strong id="calc-total">≈ 7 200 ₽</strong></div>
+        <button class="btn btn-primary" id="calc-book">Забронировать расчёт</button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ПАРТНЁРАМ -->
+  <section class="section" id="b2b">
+    <div class="container b2b-grid">
+      <div class="b2b-left" data-reveal>
+        <p class="overline">05 · Партнёрам</p>
+        <h2>Зарабатывайте на свете вместе с нами</h2>
+        <p class="lead">Мы держим склад, производство и монтаж, вы — клиентов и креатив. Спецусловия и приоритетное бронирование парка на сезон.</p>
+        <a href="#contacts" class="btn btn-primary">Партнёрские условия</a>
+      </div>
+      <div class="b2b-right">
+        <article class="b2b-card" data-reveal><h3>Ивент-агентствам и декораторам</h3><p>Оптовые тарифы аренды, приоритет на май–сентябрь и декабрь, закрывающие документы.</p></article>
+        <article class="b2b-card" data-reveal><h3>Рекламным агентствам</h3><p>Брендированные шары и арки под ключ: печать логотипа, монтаж, фотоотчёт для клиента.</p></article>
+        <article class="b2b-card" data-reveal><h3>HoReCa и городским событиям</h3><p>Сезонная аренда с правом выкупа и спецтарифы для муниципальных фестивалей.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq">
+    <div class="narrow">
+      <div class="sec-head" data-reveal>
+        <p class="overline">06 · Вопросы</p>
+        <h2>Коротко о важном</h2>
+      </div>
+      <div class="acc" data-reveal>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false">Нанесёте наш логотип?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Да, печать на куполе шара или арке — от 3 рабочих дней. Макет готовим бесплатно.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false">Сколько свет работает без розетки?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Аккумуляторные модели — 10–12 часов. Большие уличные сферы питаются от 220 В, кабель привозим с собой.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false">Что будет под дождём и у моря?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Корпуса герметичны по IP65–IP68: ливень, туман и солёные брызги — рабочая среда.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false">Доставляете по области?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Да: Зеленоградск, Светлогорск, Куршская коса, Янтарный. Монтаж — в день заказа или к точному времени.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false">Нужен ли залог?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Для частных заказов — паспорт или залог 50 %. С юрлицами работаем по договору без залога.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="section" id="contacts">
+    <div class="container contacts-grid">
+      <div data-reveal>
+        <p class="overline">07 · Контакты</p>
+        <h2>Обсудим ваш свет?</h2>
+        <p class="lead">Приезжайте в шоурум или напишите — ответим в течение 15 минут в рабочее время.</p>
+        <ul class="contacts-list">
+          <li><span>Адрес</span><strong>Калининград, ул. Промышленная, 8 — склад-шоурум</strong></li>
+          <li><span>Телефон</span><strong><a href="tel:+79114552508">+7 (911) 455-25-08</a></strong></li>
+          <li><span>Почта</span><strong><a href="mailto:snezhin_unix@mail.ru">snezhin_unix@mail.ru</a></strong></li>
+          <li><span>Режим</span><strong>ежедневно 9:00–21:00</strong></li>
+        </ul>
+        <div class="messengers">
+          <a class="btn btn-ghost btn-sm" href="https://t.me/+79114552508" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn-ghost btn-sm" href="https://wa.me/79114552508" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <form class="form" id="form" data-reveal novalidate>
+        <h3>Оставить заявку</h3>
+        <label class="field">Ваше имя<input type="text" id="f-name" placeholder="Как к вам обращаться" required></label>
+        <label class="field">Телефон<input type="tel" id="f-phone" placeholder="+7 (___) ___-__-__" required></label>
+        <label class="field">Что интересует
+          <select id="f-topic"><option>Аренда</option><option>Производство с логотипом</option><option>Партнёрство</option></select>
+        </label>
+        <label class="field">Комментарий<textarea id="f-comment" rows="3" placeholder="Например: фестиваль 14 июня, арка + 10 шаров"></textarea></label>
+        <label class="form-honeypot" aria-hidden="true">Не заполняйте это поле<input type="text" id="f-website" tabindex="-1" autocomplete="off"></label>
+        <button type="submit" class="btn btn-primary" id="form-submit">Отправить заявку</button>
+        <p class="form-note">После нажатия откроется WhatsApp с готовым текстом заявки. Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+        <p class="form-ok" id="form-ok" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-in">
+    <a class="logo" href="#top"><span class="logo-orb"></span>LIGHT<span class="logo-accent">KLD</span></a>
+    <p>Световые шары, арки и инсталляции в Калининграде — аренда, производство, монтаж.</p>
+    <p class="footer-copy">© <span id="year">2026</span> LIGHT KLD · Сделано в Калининграде</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Закрыть">✕</button>
+  <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
+</div>
+
+<script>
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+$('#year').textContent=new Date().getFullYear();
+
+/* шапка */
+addEventListener('scroll',()=>$('#header').classList.toggle('scrolled',scrollY>10),{passive:true});
+/* меню */
+$('#burger').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
+$$('#nav a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+
+/* появление */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target);}}),{threshold:.15});
+$$('[data-reveal]').forEach(el=>io.observe(el));
+
+/* счётчики */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,target=+el.dataset.count,t0=performance.now();
+  const tick=t=>{const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);};
+  requestAnimationFrame(tick);cio.unobserve(el);
+}),{threshold:.6});
+$$('[data-count]').forEach(el=>cio.observe(el));
+
+/* свечение в hero */
+const glow=$('#hero-glow'),hero=$('.hero');
+hero.addEventListener('mousemove',e=>{
+  const r=hero.getBoundingClientRect();
+  glow.style.setProperty('--gx',((e.clientX-r.left)/r.width*100)+'%');
+  glow.style.setProperty('--gy',((e.clientY-r.top)/r.height*100)+'%');
+});
+
+/* фильтры */
+function initFilter(barId,gridId,sel){
+  const bar=$('#'+barId);if(!bar)return;
+  bar.addEventListener('click',e=>{
+    const btn=e.target.closest('.chip');if(!btn)return;
+    $$('.chip',bar).forEach(b=>b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const f=btn.dataset.filter;
+    $$(sel,$('#'+gridId)).forEach(card=>{
+      const show=f==='all'||card.dataset.cat.includes(f);
+      card.classList.toggle('is-hidden',!show);
+      if(show){card.classList.remove('pop');void card.offsetWidth;card.classList.add('pop');}
+    });
+  });
+}
+initFilter('filters','prod-grid','.p-card');
+initFilter('case-filters','cases-grid','.c-item');
+
+/* калькулятор */
+const MODELS={rgb:{name:'RGBW ORB',price:600},star:{name:'STAR / CONE',price:900},logo:{name:'LOGO ORB',price:3500},arch:{name:'ARCH',price:4500}};
+const mSel=$('#calc-model'),qIn=$('#calc-qty'),dIn=$('#calc-days'),qOut=$('#qty-out'),dOut=$('#days-out'),totalOut=$('#calc-total');
+function calc(){
+  const m=MODELS[mSel.value],qty=+qIn.value,days=+dIn.value;
+  const disc=days>=7?.2:days>=3?.1:0;
+  const total=Math.round(m.price*qty*days*(1-disc));
+  qOut.textContent=qty;dOut.textContent=days;
+  totalOut.textContent='≈ '+total.toLocaleString('ru-RU')+' ₽';
+  return{m,qty,days,total};
+}
+[mSel,qIn,dIn].forEach(el=>el.addEventListener('input',calc));calc();
+$('#calc-book').addEventListener('click',()=>{
+  const{m,qty,days,total}=calc();
+  $('#f-comment').value=`Расчёт: ${m.name} × ${qty} шт, ${days} сут — ≈ ${total.toLocaleString('ru-RU')} ₽`;
+  $('#f-topic').value='Аренда';location.hash='#contacts';
+});
+
+/* аккордеон */
+$$('.acc-item').forEach(item=>{
+  $('.acc-btn',item).addEventListener('click',()=>{
+    const open=item.classList.contains('open');
+    $$('.acc-item').forEach(i=>{i.classList.remove('open');$('.acc-btn',i).setAttribute('aria-expanded','false');});
+    if(!open){item.classList.add('open');$('.acc-btn',item).setAttribute('aria-expanded','true');}
+  });
+});
+
+/* лайтбокс */
+const lb=$('#lb'),lbImg=$('#lb-img'),lbCap=$('#lb-cap');
+$$('[data-lb]').forEach(fig=>fig.addEventListener('click',()=>{
+  const img=$('img',fig);
+  lbImg.src=img.src;lbImg.alt=img.alt;
+  lbCap.textContent=$('figcaption',fig)?.textContent||'';
+  lb.classList.add('open');lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}));
+function lbClose(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+$('#lb-close').addEventListener('click',lbClose);
+lb.addEventListener('click',e=>{if(e.target===lb)lbClose();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))lbClose();});
+
+/* форма: GitHub Pages — статический хостинг, поэтому заявка открывается в WhatsApp без серверной функции */
+$('#form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const form=e.target,name=$('#f-name'),phone=$('#f-phone'),status=$('#form-ok');let ok=true;
+  [name,phone].forEach(f=>{const bad=!f.value.trim();f.style.borderColor=bad?'#ff6b6b':'';if(bad)ok=false;});
+  if(!ok)return;
+  status.hidden=true;status.classList.remove('is-error');
+  if($('#f-website').value.trim()){
+    status.textContent='Заявка успешно отправлена';
+    status.hidden=false;
+    form.reset();
+    return;
+  }
+  const message=[
+    'Новая заявка с сайта LIGHT KLD',
+    '',
+    `Имя: ${name.value.trim()}`,
+    `Телефон: ${phone.value.trim()}`,
+    `Тема: ${$('#f-topic').value}`,
+    `Комментарий: ${$('#f-comment').value.trim()||'Нет'}`,
+  ].join('\n');
+  location.href=`https://wa.me/79114552508?text=${encodeURIComponent(message)}`;
+});
+</script>
+</body>
+</html>

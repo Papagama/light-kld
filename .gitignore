@@ -1,0 +1,10 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local Netlify state and secrets
+.netlify/
+.env
+.env.*
