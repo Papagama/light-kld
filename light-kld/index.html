@@ -167,25 +167,13 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
 .lb-close:hover{border-color:var(--amber);color:var(--amber)}
 
 /* ========== АРЕНДА ========== */
-.rent-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.rent-grid{display:grid;grid-template-columns:1fr;gap:64px;align-items:start}
 .steps{display:flex;flex-direction:column;gap:8px}
 .steps li{display:flex;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
 .step-n{font:600 1.5rem var(--fd);color:var(--amber);min-width:64px}
 .steps h3{margin-bottom:6px}
 .steps p{color:var(--muted);font-size:.93rem}
-.calc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px;position:sticky;top:110px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
-.calc h3{font:600 1.2rem var(--fd);margin-bottom:22px}
-.field{display:block;font:700 .8rem var(--fb);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.field output{color:var(--amber)}
-.field select,.field input,.field textarea{display:block;width:100%;margin-top:8px;padding:13px 16px;border-radius:14px;background:var(--bg-2);border:1px solid var(--line);color:var(--text);font:500 .95rem var(--fb);outline:none;transition:border-color .25s}
-.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--amber)}
-.field input[type=range]{padding:0;height:32px;accent-color:var(--amber);background:transparent;border:0}
-.field textarea{resize:vertical}
-.calc-note{font-size:.8rem;color:var(--muted);margin-bottom:16px}
-.calc-total{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:18px 0;margin-bottom:20px}
-.calc-total span{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
-.calc-total strong{font:600 1.45rem var(--fd);color:var(--amber)}
-.calc .btn{width:100%}
+
 
 /* ========== ПАРТНЁРЫ / FAQ / КОНТАКТЫ ========== */
 .b2b-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
@@ -318,14 +306,14 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
   <section class="section alt" id="products"><div class="container">
     <div class="sec-head" data-reveal><p class="overline">02 · Оборудование</p><h2>Световые решения AIRSTAR</h2><p class="lead">Выберите фигуру для пространства, события или рекламной кампании.</p></div>
     <div class="prod-grid" id="prod-grid">
-      <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/01.jpg" alt="Световые шары" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Шары</h3></div><p>Наполняются воздухом или гелием — для интерьера, улицы и брендирования.</p><ul class="p-specs"><li>воздух</li><li>гелий</li><li>брендирование</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
+      <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/01.jpg" alt="Световые шары" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Шары</h3></div><p>Наполняются только воздухом — для интерьера, улицы и брендирования.</p><ul class="p-specs"><li>воздух</li><li>брендирование</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
       <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/06.jpg" alt="Светящаяся арка" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Арка</h3></div><p>Освещает до 1&nbsp;300 м² — решение для входных групп и событий.</p><ul class="p-specs"><li>до 1&nbsp;300 м²</li><li>для улицы</li><li>события</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
       <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/04.jpg" alt="Световой конус" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Конус</h3></div><p>Источник света может меняться, создавая нужное настроение для площадки.</p><ul class="p-specs"><li>сменный свет</li><li>акцент</li><li>фотозона</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
       <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/08.jpg" alt="Светящиеся звёзды" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Звёзды</h3></div><p>Самонадуваемые фигуры для оформления парков, сцен, витрин и праздников.</p><ul class="p-specs"><li>самонадув</li><li>оформление</li><li>праздники</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
     </div></div>
   </section>
   <section class="section" id="benefits"><div class="container info-grid">
-    <article class="info-card" data-reveal><p class="overline">Безопасность</p><h2>Безопасность</h2><ul class="info-list"><li>Шары наполняются воздухом или гелием — инертным, негорючим и невзрывным газом.</li><li>Встроенная система безопасности отключает электропитание при падении давления в шаре.</li><li>Оборудование устойчиво к любым погодным условиям, включая дождь и жару.</li></ul><p class="info-note">В зависимости от того, требуется вам освещение в помещении или на улице, широкий спектр продукции AIRSTAR поможет воплотить в жизнь любое дизайнерское решение.</p></article>
+    <article class="info-card" data-reveal><p class="overline">Безопасность</p><h2>Безопасность</h2><ul class="info-list"><li>Шары наполняются только воздухом.</li><li>Встроенная система безопасности отключает электропитание при падении давления в шаре.</li><li>Оборудование устойчиво к любым погодным условиям, включая дождь и жару.</li></ul><p class="info-note">В зависимости от того, требуется вам освещение в помещении или на улице, широкий спектр продукции AIRSTAR поможет воплотить в жизнь любое дизайнерское решение.</p></article>
     <article class="info-card" data-reveal><p class="overline">Реклама</p><h2>Бесподобное средство рекламы</h2><ul class="info-list"><li>Сферическая форма шара обеспечивает видимость под любым углом.</li><li>Парящий в воздухе шар виден отовсюду.</li><li>Внутреннее освещение автоматически выделяет изображение или надпись.</li><li>Оформление шарами выделяет мероприятие, привлекает внимание и создаёт положительную обратную связь.</li></ul></article>
   </div></section>
 
@@ -378,22 +366,6 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
           <li data-reveal><span class="step-n">04</span><div><h3>Демонтаж</h3><p>После события сами забираем оборудование. Вам — только кадры.</p></div></li>
         </ol>
       </div>
-      <aside class="calc" data-reveal>
-        <h3>Посчитать аренду</h3>
-        <label class="field">Продукт
-          <select id="calc-model">
-            <option value="rgb">RGBW ORB — 600 ₽/сут</option>
-            <option value="star">STAR / CONE — 900 ₽/сут</option>
-            <option value="logo">LOGO ORB — 3 500 ₽/сут</option>
-            <option value="arch">ARCH — 4 500 ₽/сут</option>
-          </select>
-        </label>
-        <label class="field">Количество — <output id="qty-out">6</output> шт<input type="range" id="calc-qty" min="1" max="30" value="6"></label>
-        <label class="field">Срок — <output id="days-out">2</output> сут<input type="range" id="calc-days" min="1" max="14" value="2"></label>
-        <p class="calc-note">Скидки: от 3 суток — 10 %, от 7 суток — 20 %.</p>
-        <div class="calc-total"><span>Итого</span><strong id="calc-total">≈ 7 200 ₽</strong></div>
-        <button class="btn btn-primary" id="calc-book">Забронировать расчёт</button>
-      </aside>
     </div>
   </section>
 
@@ -423,7 +395,6 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
       </div>
       <div class="acc" data-reveal>
         <div class="acc-item"><button class="acc-btn" aria-expanded="false">Нанесёте наш логотип?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Да, печать на куполе шара или арке — от 3 рабочих дней. Макет готовим бесплатно.</p></div></div></div>
-        <div class="acc-item"><button class="acc-btn" aria-expanded="false">Сколько свет работает без розетки?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Аккумуляторные модели — 10–12 часов. Большие уличные сферы питаются от 220 В, кабель привозим с собой.</p></div></div></div>
         <div class="acc-item"><button class="acc-btn" aria-expanded="false">Что будет под дождём и у моря?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Корпуса герметичны по IP65–IP68: ливень, туман и солёные брызги — рабочая среда.</p></div></div></div>
         <div class="acc-item"><button class="acc-btn" aria-expanded="false">Доставляете по области?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Да: Зеленоградск, Светлогорск, Куршская коса, Янтарный. Монтаж — в день заказа или к точному времени.</p></div></div></div>
         <div class="acc-item"><button class="acc-btn" aria-expanded="false">Нужен ли залог?<span class="acc-ico"></span></button><div class="acc-panel"><div class="acc-inner"><p>Для частных заказов — паспорт или залог 50 %. С юрлицами работаем по договору без залога.</p></div></div></div>
@@ -469,7 +440,7 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
 <footer class="footer">
   <div class="container footer-in">
     <a class="logo" href="#top"><span class="logo-orb"></span>LIGHT<span class="logo-accent">KLD</span></a>
-    <p>Световые шары, арки и инсталляции в Калининграде — аренда, производство, монтаж.</p>
+    <p>Световые шары, арки и инсталляции в Калининграде — аренда, монтаж.</p>
     <p class="footer-copy">© <span id="year">2026</span> LIGHT KLD · Сделано в Калининграде</p>
   </div>
 </footer>
@@ -527,24 +498,6 @@ function initFilter(barId,gridId,sel){
 }
 initFilter('filters','prod-grid','.p-card');
 initFilter('case-filters','cases-grid','.c-item');
-
-/* калькулятор */
-const MODELS={rgb:{name:'RGBW ORB',price:600},star:{name:'STAR / CONE',price:900},logo:{name:'LOGO ORB',price:3500},arch:{name:'ARCH',price:4500}};
-const mSel=$('#calc-model'),qIn=$('#calc-qty'),dIn=$('#calc-days'),qOut=$('#qty-out'),dOut=$('#days-out'),totalOut=$('#calc-total');
-function calc(){
-  const m=MODELS[mSel.value],qty=+qIn.value,days=+dIn.value;
-  const disc=days>=7?.2:days>=3?.1:0;
-  const total=Math.round(m.price*qty*days*(1-disc));
-  qOut.textContent=qty;dOut.textContent=days;
-  totalOut.textContent='≈ '+total.toLocaleString('ru-RU')+' ₽';
-  return{m,qty,days,total};
-}
-[mSel,qIn,dIn].forEach(el=>el.addEventListener('input',calc));calc();
-$('#calc-book').addEventListener('click',()=>{
-  const{m,qty,days,total}=calc();
-  $('#f-comment').value=`Расчёт: ${m.name} × ${qty} шт, ${days} сут — ≈ ${total.toLocaleString('ru-RU')} ₽`;
-  $('#f-topic').value='Аренда';location.hash='#contacts';
-});
 
 /* аккордеон */
 $$('.acc-item').forEach(item=>{
