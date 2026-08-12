@@ -79,7 +79,7 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
 .hero-in{position:relative;z-index:2;padding:160px 0 72px}
 .hero-sub{color:#cfd9e4;max-width:56ch;margin:22px 0 34px;font-size:1.06rem}
 .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;padding:26px 30px;border:1px solid var(--line);border-radius:var(--r);background:rgba(7,10,15,.55);backdrop-filter:blur(12px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px;padding:26px 30px;border:1px solid var(--line);border-radius:var(--r);background:rgba(7,10,15,.55);backdrop-filter:blur(12px)}
 .stat strong{display:block;font:600 1.7rem var(--fd);color:var(--amber)}
 .stat span{color:var(--muted);font-size:.85rem}
 
@@ -136,6 +136,14 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
 .p-price strong{font:600 .95rem var(--fd)}
 .p-actions{display:flex;gap:10px}
 .p-actions .btn{flex:1}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.info-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px}
+.info-card h2{font-size:clamp(1.35rem,2.6vw,2rem)}
+.info-list{display:grid;gap:14px;margin-top:24px}
+.info-list li{position:relative;padding-left:22px;color:var(--muted)}
+.info-list li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px rgba(255,180,84,.65)}
+.info-note{color:var(--muted);margin-top:24px}
+@media (max-width:700px){.info-grid{grid-template-columns:1fr}.info-card{padding:26px}}
 
 /* ========== ПОРТФОЛИО ========== */
 .cases-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -270,15 +278,14 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
     <div class="container hero-in">
       <p class="overline" data-reveal>Калининград · Зеленоградск · Светлогорск · Куршская коса</p>
       <h1 data-reveal>Шары, которые работают на&nbsp;вас</h1>
-      <p class="hero-sub" data-reveal>Светящиеся шары с вашим логотипом, надувные арки, звёзды и конусы — для событий, выставок, набережных и сцен. Аренда и производство со склада в Калининграде.</p>
+      <p class="hero-sub" data-reveal>Светящиеся шары с вашим логотипом, надувные арки, звёзды и конусы — для событий, выставок, набережных и сцен. Аренда со склада в Калининграде.</p>
       <div class="hero-cta" data-reveal>
         <a href="#cases" class="btn btn-primary">Смотреть портфолио</a>
         <a href="#rent" class="btn btn-ghost">Как работает аренда</a>
       </div>
       <div class="hero-stats" data-reveal>
         <div class="stat"><strong><span data-count="200">0</span>+</strong><span>проектов в регионе</span></div>
-        <div class="stat"><strong>1–6 м</strong><span>диаметры шаров</span></div>
-        <div class="stat"><strong><span data-count="12">0</span> ч</strong><span>свечения без розетки</span></div>
+        <div class="stat"><strong>1.6 м</strong><span>диаметр шара</span></div>
         <div class="stat"><strong>24 ч</strong><span>срочный монтаж</span></div>
       </div>
     </div>
@@ -286,8 +293,8 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Шары с логотипом</span><i>•</i><span>Надувные арки</span><i>•</i><span>Светящиеся звёзды</span><i>•</i><span>Конусы и пирамиды</span><i>•</i><span>Аэростаты</span><i>•</i><span>Аренда от суток</span><i>•</i><span>Монтаж и демонтаж</span><i>•</i>
-      <span>Шары с логотипом</span><i>•</i><span>Надувные арки</span><i>•</i><span>Светящиеся звёзды</span><i>•</i><span>Конусы и пирамиды</span><i>•</i><span>Аэростаты</span><i>•</i><span>Аренда от суток</span><i>•</i><span>Монтаж и демонтаж</span><i>•</i>
+      <span>Шары с логотипом</span><i>•</i><span>Надувные арки</span><i>•</i><span>Светящиеся звёзды</span><i>•</i><span>Конусы и пирамиды</span><i>•</i><span>Аренда от суток</span><i>•</i><span>Монтаж и демонтаж</span><i>•</i>
+      <span>Шары с логотипом</span><i>•</i><span>Надувные арки</span><i>•</i><span>Светящиеся звёзды</span><i>•</i><span>Конусы и пирамиды</span><i>•</i><span>Аренда от суток</span><i>•</i><span>Монтаж и демонтаж</span><i>•</i>
     </div>
   </div>
 
@@ -307,40 +314,20 @@ h1{font-size:clamp(2.1rem,5.4vw,4rem)}h2{font-size:clamp(1.5rem,3.2vw,2.5rem)}h3
     </div>
   </section>
 
-  <!-- ПРОДУКТЫ -->
-  <section class="section alt" id="products">
-    <div class="container">
-      <div class="sec-head" data-reveal>
-        <p class="overline">02 · Продукты</p>
-        <h2>Что берём в работу</h2>
-        <p class="lead">Четыре линейки — от компактного RGB-шара до шестиметровой сферы с вашим логотипом.</p>
-      </div>
-      <div class="chips" id="filters" data-reveal>
-        <button class="chip is-active" data-filter="all">Все</button>
-        <button class="chip" data-filter="brand">Бренд</button>
-        <button class="chip" data-filter="event">События</button>
-        <button class="chip" data-filter="city">Город</button>
-      </div>
-      <div class="prod-grid" id="prod-grid">
-        <article class="p-card" data-cat="brand event" data-reveal>
-          <div class="p-stage product-photo"><img src="img/neutral-sea.jpg" alt="Спокойное море в тумане" loading="lazy"></div>
-          <div class="p-body"><div class="p-top"><h3>LOGO ORB</h3><span class="p-size">1–6 м</span></div><p>Сфера с печатью вашего логотипа — наружная и интерьерная реклама.</p><ul class="p-specs"><li>печать</li><li>подвес/наземь</li><li>LED 220 В</li></ul><div class="p-price"><div><span>аренда</span><strong>от 3 500 ₽/сут</strong></div><div><span>производство</span><strong>от 28 000 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
-        </article>
-        <article class="p-card" data-cat="event" data-reveal>
-          <div class="p-stage product-photo"><img src="img/neutral-stones.jpg" alt="Гладкие камни в прозрачной воде" loading="lazy"></div>
-          <div class="p-body"><div class="p-top"><h3>RGBW ORB</h3><span class="p-size">20–100 см</span></div><p>Аккумуляторные шары с пультом: 16 цветов, до 12 часов свечения.</p><ul class="p-specs"><li>RGBW</li><li>12 ч</li><li>IP66</li></ul><div class="p-price"><div><span>аренда</span><strong>от 600 ₽/сут</strong></div><div><span>покупка</span><strong>от 5 500 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
-        </article>
-        <article class="p-card" data-cat="brand city" data-reveal>
-          <div class="p-stage product-photo"><img src="img/neutral-shadows.jpg" alt="Тени листвы на фактурной стене" loading="lazy"></div>
-          <div class="p-body"><div class="p-top"><h3>ARCH</h3><span class="p-size">пролёт 4–10 м</span></div><p>Надувная светящаяся арка — входные группы, пляжи, стартовые зоны.</p><ul class="p-specs"><li>печать логотипа</li><li>анкера</li><li>LED</li></ul><div class="p-price"><div><span>аренда</span><strong>от 4 500 ₽/сут</strong></div><div><span>производство</span><strong>от 45 000 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
-        </article>
-        <article class="p-card" data-cat="city event" data-reveal>
-          <div class="p-stage product-photo"><img src="img/neutral-sand.jpg" alt="Абстрактный рисунок тёмного песка" loading="lazy"></div>
-          <div class="p-body"><div class="p-top"><h3>STAR / CONE</h3><span class="p-size">0,6–2 м</span></div><p>Звёзды и конусы для парков, аллей и сцен — новогодние и фестивальные инсталляции.</p><ul class="p-specs"><li>подвес/наземь</li><li>RGB</li><li>IP65</li></ul><div class="p-price"><div><span>аренда</span><strong>от 900 ₽/сут</strong></div><div><span>покупка</span><strong>от 7 900 ₽</strong></div></div><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div>
-        </article>
-      </div>
-    </div>
+  <!-- ОБОРУДОВАНИЕ -->
+  <section class="section alt" id="products"><div class="container">
+    <div class="sec-head" data-reveal><p class="overline">02 · Оборудование</p><h2>Световые решения AIRSTAR</h2><p class="lead">Выберите фигуру для пространства, события или рекламной кампании.</p></div>
+    <div class="prod-grid" id="prod-grid">
+      <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/01.jpg" alt="Световые шары" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Шары</h3></div><p>Наполняются воздухом или гелием — для интерьера, улицы и брендирования.</p><ul class="p-specs"><li>воздух</li><li>гелий</li><li>брендирование</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
+      <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/06.jpg" alt="Светящаяся арка" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Арка</h3></div><p>Освещает до 1&nbsp;300 м² — решение для входных групп и событий.</p><ul class="p-specs"><li>до 1&nbsp;300 м²</li><li>для улицы</li><li>события</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
+      <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/04.jpg" alt="Световой конус" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Конус</h3></div><p>Источник света может меняться, создавая нужное настроение для площадки.</p><ul class="p-specs"><li>сменный свет</li><li>акцент</li><li>фотозона</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
+      <article class="p-card" data-reveal><div class="p-stage product-photo"><img src="img/08.jpg" alt="Светящиеся звёзды" loading="lazy"></div><div class="p-body"><div class="p-top"><h3>Звёзды</h3></div><p>Самонадуваемые фигуры для оформления парков, сцен, витрин и праздников.</p><ul class="p-specs"><li>самонадув</li><li>оформление</li><li>праздники</li></ul><div class="p-actions"><a class="btn btn-sm" href="#contacts">Заказать</a></div></div></article>
+    </div></div>
   </section>
+  <section class="section" id="benefits"><div class="container info-grid">
+    <article class="info-card" data-reveal><p class="overline">Безопасность</p><h2>Безопасность</h2><ul class="info-list"><li>Шары наполняются воздухом или гелием — инертным, негорючим и невзрывным газом.</li><li>Встроенная система безопасности отключает электропитание при падении давления в шаре.</li><li>Оборудование устойчиво к любым погодным условиям, включая дождь и жару.</li></ul><p class="info-note">В зависимости от того, требуется вам освещение в помещении или на улице, широкий спектр продукции AIRSTAR поможет воплотить в жизнь любое дизайнерское решение.</p></article>
+    <article class="info-card" data-reveal><p class="overline">Реклама</p><h2>Бесподобное средство рекламы</h2><ul class="info-list"><li>Сферическая форма шара обеспечивает видимость под любым углом.</li><li>Парящий в воздухе шар виден отовсюду.</li><li>Внутреннее освещение автоматически выделяет изображение или надпись.</li><li>Оформление шарами выделяет мероприятие, привлекает внимание и создаёт положительную обратную связь.</li></ul></article>
+  </div></section>
 
   <!-- ПОРТФОЛИО -->
   <section class="section" id="cases">
